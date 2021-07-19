@@ -65,7 +65,7 @@ const galleryItems = [
 ];
 
 const jsGalleryNode = document.querySelector('.js-gallery');
-let htmlGallery = galleryItems.map(image => `<li>  <a
+let htmlGallery = galleryItems.map(image => `<li> <a
     class="gallery__link"
     href="${image.original}"
   > <img class="gallery__image" src="${image.preview}" alt="${image.description}" data-source="${image.original}" /></a></li>`).join('');
@@ -80,6 +80,18 @@ function imgClick(event) {
   event.preventDefault();
   document.querySelector(".lightbox").classList.add('is-open');
   document.querySelector(".lightbox__image").src = event.target.dataset.source;
-}
+  
+};
+   
 
+const modalClose = document.querySelector('.lightbox__button');
+modalClose.addEventListener(`click`, closeMobalBt);
+ 
+
+function closeMobalBt(e) {
+  if (e.currentTarget === e.target) {
+    document.querySelector(".lightbox").classList.remove('is-open');
+    document.querySelector(".lightbox__image").src = '';
+  }
+};
 
