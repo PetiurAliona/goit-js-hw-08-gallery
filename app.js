@@ -70,6 +70,16 @@ let htmlGallery = galleryItems.map(image => `<li>  <a
     href="${image.original}"
   > <img class="gallery__image" src="${image.preview}" alt="${image.description}" data-source="${image.original}" /></a></li>`).join('');
 
-
-
 jsGalleryNode.insertAdjacentHTML('afterbegin', htmlGallery);
+
+jsGalleryNode.addEventListener("click", imgClick);
+
+function imgClick(event) {
+    
+  if (event.target.tagName !== "IMG") return false;
+  event.preventDefault();
+  document.querySelector(".lightbox").classList.add('is-open');
+  document.querySelector(".lightbox__image").src = event.target.dataset.source;
+}
+
+
