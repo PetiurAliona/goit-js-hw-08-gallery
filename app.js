@@ -81,8 +81,7 @@ function imgClick(event) {
   document.querySelector(".lightbox").classList.add('is-open');
   document.querySelector(".lightbox__image").src = event.target.dataset.source;
   
-};
-   
+};   
 
 const modalClose = document.querySelector('.lightbox__button');
 modalClose.addEventListener(`click`, closeMobalBt);
@@ -92,6 +91,6 @@ function closeMobalBt(e) {
   if (e.currentTarget === e.target) {
     document.querySelector(".lightbox").classList.remove('is-open');
     document.querySelector(".lightbox__image").src = '';
-  }
+      }
 };
 
